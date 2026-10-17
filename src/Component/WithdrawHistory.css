@@ -1,0 +1,85 @@
+.withdraw-history-page {
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  min-height: 100vh;
+}
+
+.withdraw-history-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.withdraw-history-page-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #333333;
+}
+
+.withdraw-history-page-header .back-arrow {
+  font-size: 18px;
+  color: #666666;
+  cursor: pointer;
+}
+
+.withdraw-history-page-empty {
+  text-align: center;
+  color: #999999;
+  font-size: 13px;
+  padding: 30px 0;
+}
+
+.withdraw-history-page-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 8px;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.withdraw-history-page-row:last-child {
+  border-bottom: none;
+}
+
+.withdraw-history-page-amount {
+  font-size: 15px;
+  font-weight: 700;
+  color: #e03e3e;
+}
+
+.withdraw-history-page-date {
+  font-size: 12px;
+  color: #999999;
+  margin-top: 2px;
+}
+
+.withdraw-history-page-state {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.withdraw-history-page-state.state-approved {
+  background: #e7f7ec;
+  color: #2fb344;
+}
+
+.withdraw-history-page-state.state-pending {
+  background: #fff3cd;
+  color: #e8a200;
+}
+
+.withdraw-history-page-state.state-rejected {
+  background: #fdecea;
+  color: #d93025;
+}

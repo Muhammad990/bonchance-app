@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.main_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-image: url('./login_bg.png');
+    background-position: 80% 0%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    padding-bottom: 30px;
+}
+
+.language_handle {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 44px;
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.language_handle button {
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.welcome_box {
+    width: 100%;
+    /* max-width: 400px; */
+    margin: 20px 0;
+    padding: 0 15px;
+    font-size: 14px;
+    color: #333333;
+    /* text-align: center; */
+}
+
+.main_login,
+.main_register {
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    width: 100%;
+    max-width: 400px;
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 20px 15px 0px 15px;
+}
+
+.main_login div h2,
+.main_register div h2 {
+    color: blue;
+    cursor: default;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.login_area,
+.register_area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.login_inputs {
+    width: 100%;
+}
+
+.login_inputs input {
+    width: 100%;
+    height: 45px;
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    padding: 0 18px;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.login_inputs input:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 0 2px blue;
+}
+
+.login_btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_btn button {
+    width: 100%;
+    max-width: 160px;
+    height: 42px;
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid blue;
+    border-radius: 10px;
+    color: blue;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.login_btn button:hover {
+    background-color: blue;
+    color: white;
+}
+
+.no_or_already {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #444;
+}
+
+.no_or_already a {
+    color: blue;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.no_or_already a:hover {
+    text-decoration: underline;
+}
+
+/* Fluid Media Queries for Smaller / Landscape Viewports */
+@media (max-width: 480px) {
+    .main_page {
+        padding: 10px;
+    }
+    .language_handle {
+        height: 36px;
+        padding: 5px 10px;
+    }
+    .main_login,
+    .main_register {
+        padding: 25px 20px;
+    }
+    .login_inputs input {
+        height: 42px;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-height: 700px) {
+    .main_page {
+        justify-content: flex-start;
+        padding-top: 10px;
+    }
+    .welcome_box {
+        margin: 10px 0;
+    }
+    .main_login,
+    .main_register {
+        padding: 20px 25px;
+        margin-bottom: 20px;
+    }
+    .login_inputs input {
+        height: 38px;
+        margin-bottom: 8px;
+    }
+    .login_btn button {
+        height: 38px;
+        font-size: 16px;
+    }
+}
+
+/* Very Small Phones */
+@media (max-width: 360px) {
+    .main_login,
+    .main_register {
+        padding: 22px 14px;
+        margin: 15px 10px;
+    }
+
+    .login_inputs input {
+        height: 40px;
+        font-size: 14px;
+        padding: 0 14px;
+    }
+
+    .login_btn button {
+        font-size: 16px;
+        max-width: 140px;
+    }
+
+    .welcome_box h2 {
+        font-size: 15px;
+    }
+
+    .no_or_already {
+        font-size: 13px;
+    }
+}
+.lang_modal_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 1000;
+}
+
+.lang_modal_content {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    max-height: 70vh;
+    overflow-y: auto;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: slideUp 0.3s ease-out forwards;
+}
+
+.lang_item {
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 18px;
+    color: #333333;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+}
+
+.lang_item:hover {
+    background-color: #f7f7f7;
+    color: blue;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}

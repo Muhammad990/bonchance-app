@@ -1,0 +1,317 @@
+// Español (User Panel)
+const es = {
+  common: {
+    loading: "Cargando...",
+    back: "Atrás",
+    cancel: "Cancelar",
+    confirm: "Confirmar",
+    save: "Guardar",
+    saved: "Guardado",
+    submit: "Enviar",
+    submitting: "Enviando...",
+    saving: "Guardando...",
+    ok: "OK",
+    error: "Error",
+    success: "Éxito",
+    pending: "Pendiente",
+    approved: "Aprobado",
+    rejected: "Rechazado",
+    completed: "Completado",
+    all: "Todos",
+    failed: "Fallido",
+    select_language: "Seleccionar idioma",
+    language: "Idioma",
+    unable_server: "No se pudo conectar con el servidor. Inténtalo de nuevo.",
+    fill_all: "Por favor, completa todos los campos",
+    hint_disabled: "Los depósitos y retiros están desactivados actualmente",
+    account_disabled:
+      "Las transacciones están desactivadas para tu cuenta. Contacta con soporte.",
+  },
+
+  navbar: {
+    home: "Inicio",
+    history: "Historial",
+    starting: "Inicio de tarea",
+    services: "Servicios",
+    my_profile: "Mi perfil",
+  },
+
+  page: {
+    home: "Inicio",
+    history: "Historial",
+    services: "Servicios",
+    deposit: "Depósito",
+    withdraw: "Retiro",
+    widthraw_page: "Retiro",
+    withdrawal_account: "Cuenta de retiro",
+    deposit_history: "Historial de depósitos",
+    withdraw_history: "Historial de retiros",
+    starting: "Inicio de tarea",
+    my_profile: "Mi perfil",
+    security_pin: "PIN de seguridad",
+    login_password: "Contraseña de acceso",
+    invite_friends: "Invitar amigos",
+    about_us: "Sobre nosotros",
+    faq: "FAQ",
+    vip_rules: "Reglas VIP",
+    invitation_rules: "Reglas de invitación",
+    about_us_details: "Sobre nosotros",
+  },
+
+  home: {
+    welcome: "Bienvenido",
+    vip_level: "Niveles VIP",
+    popular: "Populares",
+    deposit: "Depósito",
+    withdrawal: "Retiro",
+    about_us: "Sobre nosotros",
+    invite_friends: "Invitar amigos",
+  },
+
+  deposit: {
+    title: "Depósito",
+    amount_label: "Importe del depósito",
+    total_balance: "Saldo total",
+    bank_card: "Tarjeta bancaria",
+    quick_selection: "Selección rápida",
+    err_amount: "Introduce un importe de depósito válido",
+    range_hint: "Rango permitido para {vip}: {min} - {max}",
+    err_below: "El importe del depósito no puede ser inferior a {min}",
+    err_above: "El importe del depósito no puede superar {max}",
+    err_loading_card: "Espera, estamos cargando tu tarjeta bancaria",
+    err_add_card:
+      "Añade primero tu tarjeta bancaria en Mi perfil → Cuenta de retiro",
+    info_title: "Información de la tarjeta bancaria",
+    info_hint:
+      "Los datos de la tarjeta se toman automáticamente de tu cuenta de retiro (Mi perfil).",
+    bank_name: "Nombre del banco",
+    card_number: "Número de tarjeta",
+    account_holder: "Titular de la cuenta",
+    ph_bank_name: "Introduce el nombre del banco",
+    ph_card_number: "Introduce el número de tarjeta",
+    ph_account_holder: "Introduce el nombre de la cuenta bancaria",
+    waiting_title: "Esperando aprobación....",
+    waiting_text:
+      "Tu solicitud de recarga ha sido enviada. Espera la confirmación del administrador.",
+  },
+
+  withdraw: {
+    title: "Retiro",
+    amount_label: "Importe del retiro",
+    total_balance: "Saldo total",
+    method_title: "Método de retiro",
+    method_hint:
+      "Estos datos provienen de tu cuenta de retiro (Mi perfil) y no se pueden editar aquí.",
+    bank_card: "Tarjeta bancaria",
+    usdt: "USDT",
+    wise: "Wise",
+    revolut: "Revolut",
+    bank_name: "Nombre del banco",
+    bank_account: "Cuenta bancaria/USDT",
+    full_name: "Nombre completo",
+    usdt_address: "Dirección USDT",
+    usdt_protocol: "Protocolo USDT",
+    wise_email: "Correo de la cuenta Wise",
+    wallet_address: "Dirección de la cartera",
+    security_pin: "PIN de seguridad",
+    time_title: "Horario de retiro",
+    time_text:
+      "Los retiros solo se permiten entre las 01:00:00 y las 17:00:00. Inténtalo de nuevo en ese horario.",
+    success: "Solicitud de retiro enviada, esperando aprobación",
+    err_amount: "Introduce un importe de retiro válido",
+    err_pin: "Introduce tu PIN de seguridad",
+    err_loading: "Espera, estamos cargando tu cuenta de retiro",
+    err_details:
+      "Añade primero tus datos ({method}) en Mi perfil → Cuenta de retiro",
+    err_bank: "Completa Nombre del banco, Número de cuenta y Nombre completo",
+    err_usdt: "Completa la dirección USDT y el nombre completo",
+    err_wise: "Completa el correo de la cuenta Wise y el nombre completo",
+    err_revolut: "Completa la dirección de la cartera y el nombre completo",
+    limit_title: "Error en la solicitud",
+    err_below: "El importe del retiro no puede ser inferior a {min}",
+    err_above: "El importe del retiro no puede superar {max}",
+    err_daily: "Límite diario de retiros alcanzado. Puede realizar {count} retiro(s) al día.",
+  },
+
+  waccount: {
+    title: "Cuenta de retiro",
+    hint:
+      "Estos datos se usan automáticamente para Depósito y Retiro. Una vez enviados, se guardan en la lista de tarjetas bancarias del administrador.",
+    usdt_number: "Número USDT",
+    confirm_text: "¿Seguro que quieres guardar estos datos de la cuenta de retiro?",
+    saved_success: "Cuenta de retiro guardada con éxito",
+  },
+
+  history: {
+    pending: "Pendiente",
+    completed: "Completado",
+    no_records: "No se encontraron registros",
+    total_amount: "Importe total:",
+    profit: "Beneficio:",
+    volume: "Volumen de transacciones:",
+    order_submitted: "Orden enviada con éxito",
+  },
+
+  start: {
+    current: "Actual",
+    profit: "Beneficio:",
+    application: "Aplicaciones:",
+    welcome: "¡Hola! Bienvenido",
+    commission_details: "Detalles de comisión",
+    today_profit: "Beneficio de hoy",
+    account_balance: "Saldo de la cuenta",
+    starting: "Inicio",
+    important_notice: "Aviso importante",
+    working_hours: "• Horario de trabajo: 09:00:00 - 23:58:59",
+    contact_line:
+      "• Si tienes alguna pregunta, contacta con atención al cliente en línea.",
+    processing: "Procesando...",
+    start: "Empezar",
+    order_product: "Producto de la orden",
+    rating: "Calificación:",
+    price: "Precio:",
+    commission: "Comisión:",
+    order_done:
+      "¡Orden completada! Beneficio {amount} añadido a tu saldo.",
+    unable_server: "No se pudo conectar con el servidor",
+  },
+
+  sv: {
+    online: "En línea",
+    customer: "Clientes",
+    services: "Servicios",
+  },
+
+  mp: {
+    invitation_code: "Código de invitación",
+    credit_reputation: "Reputación de crédito",
+    today_profit: "Beneficio de hoy",
+    account_balance: "Saldo de la cuenta",
+    orders_count: "Número de órdenes",
+    invite_friends: "Invitar amigos",
+    invite_subtitle: "Invita amigos y obtén recompensas",
+    logout: "Cerrar sesión",
+    logout_confirm: "¿Seguro que quieres cerrar sesión?",
+    footer: "Copyright © 2023 Nativz. Todos los derechos reservados.",
+    user: "Usuario",
+  },
+
+  lp: {
+    old_password: "Contraseña antigua",
+    new_password: "Nueva contraseña",
+    confirm_password: "Confirmar nueva contraseña",
+    note:
+      "Contacta con atención al cliente si olvidaste tu contraseña de acceso antigua.",
+    err_min: "La nueva contraseña debe tener al menos 6 caracteres",
+    err_mismatch: "La nueva contraseña y su confirmación no coinciden",
+  },
+
+  sp: {
+    old_pin: "PIN antiguo",
+    new_pin: "PIN nuevo",
+    confirm_pin: "Confirmar PIN nuevo",
+    note:
+      "Contacta con atención al cliente si olvidaste tu PIN de seguridad antiguo.",
+    err_min: "El nuevo PIN debe tener al menos 6 caracteres",
+    err_mismatch: "El nuevo PIN y su confirmación no coinciden",
+  },
+
+  dh: {
+    title: "Historial de depósitos",
+    empty: "Aún no hay historial de depósitos",
+  },
+
+  wh: {
+    title: "Historial de retiros",
+    empty: "Aún no hay historial de retiros",
+  },
+
+  ifr: {
+    title: "Invitar amigos",
+    link_copied: "Enlace copiado",
+    copy_prompt: "Copia este enlace:",
+  },
+
+  faq: {
+    title: "FAQ",
+    important_reminder: "Recordatorio importante",
+    reminder_text:
+      "Cualquier actividad maliciosa de blanqueo de capitales está estrictamente prohibida. Si se detecta, la plataforma congelará las siguientes cuentas y tomará las acciones legales correspondientes.",
+    deposit_heading: "Depósito",
+    deposit_text:
+      "Cada depósito debe enviarse a atención al cliente para recargar tu cuenta. Después de transferir los fondos a la cuenta proporcionada por el equipo de soporte de la plataforma, proporciona el comprobante de la transferencia exitosa. Para asegurar la recepción inmediata de tu depósito, asegúrate de que el nombre del destinatario y el importe transferido coincidan. Si encuentras problemas no resueltos durante el proceso de depósito, contacta con atención al cliente. Debido al gran volumen de información, revisa cuidadosamente los detalles antes de completar la transacción. La plataforma puede cambiar la información de tu cuenta de vez en cuando. Si encuentras problemas no resueltos durante el proceso de depósito, contacta con atención al cliente. Si tienes alguna pregunta, contacta con la atención al cliente en línea de la plataforma.",
+    withdraw_heading: "Retirar fondos",
+    withdraw_text:
+      'Antes de retirar tus fondos, vincula tu dirección de retiro a la plataforma. Para retirar fondos, ve a la pantalla "Retirar fondos" de la página principal, haz clic en el botón "Retiro" e introduce el importe que deseas retirar y tu contraseña de retiro.',
+    note: "(Nota: contacta con nuestra atención al cliente para obtener ayuda.)",
+  },
+
+  ir: {
+    title: "Reglas de invitación",
+    p1: "Los miembros de la plataforma pueden usar códigos de referidos para invitar a otros a unirse a tu equipo. Recibirás un porcentaje de comisión de las ganancias de los miembros de tu equipo. Las ganancias se te devolverán directamente a través de tu cuenta en la plataforma o en los informes de tu equipo.",
+    notice: "Aviso:",
+    p2: "Todos los agentes y sus miembros subordinados reciben un cierto porcentaje de ingresos y bonos de la plataforma. El ingreso es el 30% de las comisiones ganadas por sus participantes subordinados. La plataforma no brinda soporte para el desarrollo de los miembros del equipo subordinado, ni impacta negativamente en los ingresos y bonos de los agentes.",
+  },
+
+  vr: {
+    title: "Reglas VIP",
+    p1: "VIP 1 consta de 30 órdenes por ciclo. Para completar estas órdenes se requiere un saldo mínimo de 25 USDT. El límite de retiro para este nivel va desde 100 USDT hasta un máximo de 5.000 USDT.",
+    p2: "VIP 2 consta de 40 órdenes por ciclo. Para subir a VIP 2 se requiere un depósito mínimo de 1.500 USDT. El límite de retiro para este nivel va desde 100 USDT hasta un máximo de 10.000 USDT.",
+    p3: "VIP 3 consta de 50 órdenes por ciclo. Para desbloquear VIP 3 se requiere un depósito mínimo de 5.000 USDT. El límite de retiro para este nivel va desde 100 USDT hasta un máximo de 50.000 USDT.",
+    p4: "VIP 4 consta de 60 órdenes por ciclo. Para desbloquear VIP 4 se requiere un depósito mínimo de 10.000 USDT. El límite de retiro para este nivel va desde 100 USDT hasta un máximo de 1.000.000 USDT. Los usuarios de VIP 4 también reciben un 10% adicional de comisión en comparación con niveles VIP inferiores.",
+  },
+
+  ad: {
+    title: "Sobre nosotros",
+    intro:
+      "Términos y condiciones para registrarse como socio, tienda, plataforma o empleado en Oneforma.",
+    h_agreement: "Tu acuerdo",
+    p1: '1. Antes de usar, ver o crear una cuenta en la plataforma oneforma.com ("OneForma"), lee detenidamente estos términos y condiciones ("Términos", "Términos y Condiciones"). Tu acceso y uso de OneForma están condicionados a tu aceptación y cumplimiento de estos Términos y Condiciones y de CENTIFIC GLOBAL SOLUTIONS, Inc. ("CENTIFIC"). Estos Términos se aplican a todos los visitantes, usuarios, espectadores y demás personas que accedan a OneForma o la utilicen.',
+    p2: '2. Al proporcionar servicios o realizar proyectos asignados en la plataforma Oneforma, reconoces que tú ("tú", tu socio, tienda asociada, plataforma asociada y personal) has firmado un Acuerdo de Servicios con CENTIFIC, que contiene los términos y condiciones, las disposiciones aplicables según la legislación aplicable, una descripción de los servicios o una orden de trabajo y otros documentos mutuamente acordados por ambas partes ("Acuerdo"). Si existe algún conflicto entre estos Términos y Condiciones y acuerdos previos celebrados por ti respecto de esta materia, prevalecerán estos Términos y Condiciones.',
+    p3: "3. Al registrarte o usar OneForma, aceptas quedar vinculado por este Acuerdo. Si no estás de acuerdo con alguna o todas las partes de este Acuerdo, no puedes registrarte en OneForma.",
+    h_relationships: "Relaciones entre todas las partes",
+    p4: "1.1. El papel de CENTIFIC OneForma es una plataforma bajo CENTIFIC, ubicada en 14980 NE 31st Way, Suite 100, Redmond, WA 98052. Correo de contacto: omegaguttakdl53@gmail.com",
+    p5: 'CENTIFIC proporciona la plataforma OneForma, permitiendo a sus usuarios decidir y elegir celebrar acuerdos. Tú proporcionas servicios a terceros o a CENTIFIC (el "Propietario del proyecto") que asignan trabajos o proyectos en OneForma. Cualquier servicio o trabajo que realices bajo este acuerdo es para el Propietario del proyecto y no forma parte de las operaciones comerciales normales de CENTIFIC (los "Servicios").',
+    h_deliverables: "1.2. Entregables",
+    p6: "CENTIFIC no te proporcionará un lugar de trabajo permanente ni te requerirá realizar tus servicios en una ubicación especialmente diseñada. Debes determinar el lugar de trabajo de cada proyecto a tu discreción. Para cualquier proyecto que requiera trabajar en sitio, te reservas el derecho absoluto de no emprender dicho proyecto.",
+    h_statement: "1.3. Tu declaración",
+    p7: "Al leer este acuerdo, declaras y garantizas a CENTIFIC que:",
+    p8: "Normalmente te dedicas a un comercio o actividad empresarial independientemente establecido de la misma naturaleza que los servicios previstos en este Acuerdo. Tú o el personal del proyecto deben poseer las habilidades, experiencia y cualificaciones necesarias para realizar los servicios;",
+    p9: "Tú o tu equipo de proyecto deben prestar los servicios de manera profesional y competente, cumpliendo los mejores estándares del sector para servicios similares y satisfaciendo los requisitos tanto del gobierno central como del propietario del proyecto. Tú o tu equipo de proyecto deben dedicar los recursos suficientes para garantizar una prestación de servicios puntual y fiable.",
+    p10: "Tú o tu personal de proyecto realizarán los servicios de conformidad con todas las leyes y regulaciones federales, estatales y otras nacionales y locales aplicables, incluida la conservación de todas las licencias, permisos y registros necesarios para realizar los servicios;",
+    p11: "Tienes derecho a celebrar este acuerdo, contratar personal del proyecto o conceder derechos conforme a los términos pertinentes de este acuerdo, y asumirás toda la responsabilidad del cumplimiento de todos los servicios bajo este acuerdo;",
+    p12: "Proporcionarás, por tu cuenta, todos los materiales, equipos, suministros y otros recursos necesarios para la prestación de los Servicios, incluidos los gastos de viaje u otros costos en los que tú o tu personal de proyecto incurrais en la prestación de los Servicios; y tú o tu personal de proyecto no tendréis derecho a ningún permiso, seguro médico o de vida colectivo, discapacidad, participación en beneficios o planes de jubilación, ni a ningún otro beneficio adicional o plan de bienestar ofrecido por CENTIFIC a sus empleados, y CENTIFIC no será responsable de retener o pagar cualquier impuesto sobre la renta, salarios, Seguridad Social u otros impuestos federales, estatales o locales, pagar primas de seguro (incluidas primas de seguro de desempleo u discapacidad) u obtener un seguro de compensación laboral en tu nombre, salvo que la ley aplicable lo exija de otro modo; serás responsable y reembolsarás a CENTIFIC todos tales impuestos o contribuciones, incluidas sanciones e intereses, y renuncias expresamente a cualquier derecho a solicitar a CENTIFIC el reembolso de cualquier daño que tú (y tus empleados y contratistas) podáis sufrir en la prestación de los Servicios bajo este Acuerdo.",
+    h_term: "2. Vigencia y rescisión",
+    p13: "2.1. El presente Acuerdo entrará en vigor desde la fecha en que te registres como titular de una cuenta OneForma y permanecerá en vigor hasta que el acuerdo sea rescindido de mutuo acuerdo entre tú y CENTIFIC o por cualquiera de las partes conforme a la Sección 2.2.",
+    p14: "2.2. Rescisión. No obstante cualquier disposición en contrario de este Acuerdo, CENTIFIC podrá rescindir tu registro en OneForma en cualquier momento, por cualquier motivo o sin motivo, previa notificación escrita con 30 días de antelación. Además de los recursos previstos en este Acuerdo, CENTIFIC también podrá rescindir este Acuerdo de forma inmediata previa notificación a ti si tú:",
+    p15: "Antes o en el momento de firmar este Acuerdo, la Empresa no proporcionó la información o documentación pertinente que CENTIFIC solicitó razonablemente, o proporcionó a CENTIFIC información o documentación falsa o engañosa.",
+    p16: "Te dedicas a cualquier actividad fraudulenta, incluyendo pero no limitándose a:",
+    p17: "Falsificar tu tarjeta de asistencia; cobrar en exceso; realizar declaraciones engañosas o fraudulentas a CENTIFIC o al propietario del proyecto utilizando máquinas automatizadas para realizar servicios sin la aprobación previa del propietario del proyecto;",
+    p18: "Un incumplimiento material de este Acuerdo y del Acuerdo de Confidencialidad, y dicho incumplimiento es irreparable, o incluso si es reparable, no se subsana dentro de los 7 días siguientes a la notificación de dicho incumplimiento; o un incumplimiento de cualquier declaración o garantía realizada por ti bajo este Acuerdo o el SOW correspondiente.",
+    p19: "Puedes rescindir este Acuerdo eliminando tu cuenta de OneForma. En este caso, debes proporcionar a CENTIFIC una declaración escrita en la que se indique el importe total que CENTIFIC te debe a la fecha de rescisión. CENTIFIC pagará entonces dicho importe conforme a los términos y procedimientos establecidos en la Sección 3 de estos Términos.",
+    p20: "Entiendes y reconoces que el cierre de cualquier proyecto o la rescisión de cualquier SOW no rescindirá automáticamente este Acuerdo. y tu acceso a OneForma ha sido rescindido.",
+    h_consequences: "2.3. Consecuencias de la rescisión",
+    p21: "Cuando este Acuerdo venza o se rescinda por cualquier motivo, o en cualquier otro momento, a solicitud escrita de CENTIFIC o del Propietario del proyecto, deberás, dentro de tres días de dicho vencimiento o rescisión, entregar a CENTIFIC y/o al Propietario del proyecto todas las entregas (completas o incompletas) y todos los materiales, equipos y demás bienes proporcionados por CENTIFIC o el Propietario del proyecto para tu uso;",
+    p22: "Entregar a CENTIFIC o al propietario del proyecto todos los documentos tangibles y demás soportes, incluidas las copias, que contengan, reflejen, incorporen o estén basados en información confidencial;",
+    p23: "Debes eliminar permanentemente toda información confidencial de tu ordenador y sistema fotográfico; y proporcionar a CENTIFIC y al propietario del proyecto una confirmación escrita de que has cumplido los requisitos de esta sección. Salvo lo dispuesto por la ley, si tu cuenta se cierra, ya no tendrás acceso a la información o materiales que almacenes en OneForma, y cualquier contenido almacenado en tu cuenta podrá ser eliminado, por lo que CENTIFIC declina expresamente cualquier responsabilidad. CENTIFIC podrá conservar parte o toda la información de tu cuenta según lo permitido o requerido por la ley y las políticas de privacidad.",
+    h_payment: "3. Pago",
+    h_payment_method: "3.1 Método de pago",
+    p24: "Los pagos se realizan a través de Payoneer de forma predeterminada. Al firmar un contrato con Payoneer o proporcionar información de pago a Payoneer a través de OneForma, reconoces y aceptas que: (a) tu cuenta con Payoneer y cualquier servicio de gestión de fondos relacionado se rigen únicamente por los términos y condiciones de Payoneer; (b) CENTIFIC no es responsable ante ti de los servicios de gestión de fondos proporcionados por Payoneer, y CENTIFIC no ofrece declaraciones ni garantías respecto a dichos servicios; (c) CENTIFIC no será responsable, directa o indirectamente, de ningún daño o pérdida real o presunto derivado del uso o la confianza en los servicios de gestión de fondos proporcionados por Payoneer; y (d) renuncias de forma irrevocable a cualquier reclamación contra CENTIFIC y sus afiliadas en relación con dichos servicios de gestión de fondos. Si prefieres otros métodos de pago, envía un correo a omegaguttakdl53@gmail.com",
+    p25: "Reconoces además y aceptas que CENTIFIC no será responsable de ningún fallo de pago derivado de la legislación aplicable o de cualquier restricción impuesta por tu institución financiera, ni de ningún apunte de crédito o débito de una institución financiera relacionado con: tu cuenta Payoneer u cualquier otro método de pago acordado entre tú y CENTIFIC. CENTIFIC hará esfuerzos comercialmente razonables para trabajar contigo y resolver dichas transacciones de manera coherente con este Acuerdo y con cualquier legislación aplicable.",
+    h_currency: "3.2. Moneda y procedimientos de pago",
+    p26: "Según el propietario del proyecto y los servicios que elijas realizar, CENTIFIC podrá decidir a su discreto pagar en dólares estadounidenses, RMB o cualquier otra moneda.",
+    h_prepay: "3.3. Regulaciones de prepago",
+    p27: "Colaboramos con comerciantes de hoteles y tu trabajo actual de reservas se realiza sobre una base de prepago. Dado que OneForma solo proporciona una plataforma a tiempo parcial a todos los miembros, necesitas proporcionar fondos por adelantado antes de emprender tareas con prepago. Después de completar cada orden, el sistema devolverá automáticamente el importe ganado y tu comisión. Por lo tanto, debes comenzar tu trabajo sobre una base de prepago. Al registrarte o usar OneForma, aceptas quedar vinculado por este acuerdo. Si no estás de acuerdo con alguna o todas las partes de este acuerdo, no puedes registrarte en OneForma. Lee detenidamente nuestras políticas de privacidad y regulaciones correspondientes.",
+    h_nofees: "3.5. Sin obligación de pagar comisiones",
+    p28: "Soportarás todos y cada uno de los gastos en los que incurras, incluyendo pero no limitándose a los gastos de viaje y otros gastos de negocio en los que incurran tú o tus empleados, agentes o contratistas en la prestación de los servicios bajo este Acuerdo. Ni CENTIFIC ni el Propietario del proyecto serán responsables de los gastos en los que incurran tú o tus empleados, agentes o contratistas en el cumplimiento de sus obligaciones bajo este Acuerdo.",
+    h_tax: "3.4. Tributación",
+    p29: "Para todos los usuarios y contribuyentes, todos tus impuestos se pagan por adelantado a OneForma. Con cualquier pago que realices a OneForma, reconoces y aceptas que OneForma ha retenido o pagado cualquier impuesto sobre la renta, salarios, Seguridad Social u otros impuestos. OneForma no es responsable de pagar primas de seguro (incluidas primas de seguro de desempleo u discapacidad) ni de obtener un seguro de compensación laboral. En tu nombre, salvo que la ley aplicable lo exija de otro modo, serás responsable de indemnizar a CENTIFIC por todos dichos impuestos o contribuciones, incluidas sanciones e intereses.",
+    p30: "Para contribuyentes de cualquier otra jurisdicción, serás responsable de los impuestos sobre los pagos recibidos de OneForma. Si no pagas los impuestos conforme a la legislación aplicable, OneForma congelará tu cuenta y proporcionará pruebas de tu evasión fiscal a la jurisdicción fiscal correspondiente sin aviso previo, contactando directamente con el tribunal de tu jurisdicción fiscal a través de OneForma.",
+  },
+
+  app: {
+    rejected_title: "Retiro rechazado",
+  },
+};
+
+export default es;

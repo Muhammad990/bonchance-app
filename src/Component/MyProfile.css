@@ -1,0 +1,524 @@
+/* ============================================
+   MyProfile.css
+   Combines:
+   - Top: Blue gradient dashboard (avatar + cards)
+   - Bottom: White settings menu + logout + footer
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.my-profile {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(180deg, #89cff0 0%, #b0e2ff 100%);
+  min-height: 100vh;
+  padding: 40px 20px;
+  position: relative;
+  overflow-x: hidden;
+  color: #333;
+}
+
+/* Decorative background blob on the blue section */
+.my-profile::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: 10%;
+  width: 400px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  transform: rotate(-5deg);
+  pointer-events: none;
+}
+
+.my-profile__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   User Profile Header
+   ============================================ */
+.my-profile__user {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 30px;
+  padding-left: 10px;
+}
+
+.my-profile__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid white;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.my-profile__user-info {
+  color: #1a1a1a;
+}
+
+.my-profile__username {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
+}
+
+.my-profile__user-meta {
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+/* ============================================
+   Stats Cards Container (white wrapper)
+   ============================================ */
+.my-profile__cards {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+.my-profile__top-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* Common card label / value */
+.my-profile__card-label {
+  font-size: 15px;
+  color: #555;
+  font-weight: 500;
+  /* margin-bottom: 12px; */
+  position: relative;
+  z-index: 1;
+  
+}
+
+.my-profile__card-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.5px;
+}
+
+/* ============================================
+   Today's Profit Card (blue gradient)
+   ============================================ */
+.my-profile__profit-card {
+  background: linear-gradient(135deg, #e8f4fd 0%, #d6ebfb 100%);
+  border-radius: 16px;
+  padding: 28px 32px;
+  position: relative;
+  overflow: hidden;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Decorative circles */
+.my-profile__profit-card::before {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  left: -40px;
+  width: 200px;
+  height: 200px;
+  border: 25px solid rgba(137, 207, 240, 0.15);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.my-profile__profit-card::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -10px;
+  width: 160px;
+  height: 160px;
+  border: 18px solid rgba(137, 207, 240, 0.12);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ============================================
+   Right Column (Balance + Orders)
+   ============================================ */
+.my-profile__right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.my-profile__balance-card {
+  background: linear-gradient(135deg, #c8f7dc 0%, #a8e6cf 100%);
+  border-radius: 16px;
+  padding: 24px 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.my-profile__orders-card {
+  background: linear-gradient(135deg, #ffe4ec 0%, #ffd1dc 100%);
+  border-radius: 16px;
+  padding: 24px 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ============================================
+   Invite Friends Card
+   ============================================ */
+.my-profile__invite-card {
+  background: linear-gradient(135deg, #ffe4f0 0%, #ffd6e8 100%);
+  border-radius: 16px;
+  padding: 28px 32px;
+  position: relative;
+  overflow: hidden;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.my-profile__invite-text {
+  position: relative;
+  z-index: 2;
+  max-width: 60%;
+}
+
+.my-profile__invite-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 6px;
+}
+
+.my-profile__invite-subtitle {
+  font-size: 14px;
+  color: #444;
+}
+
+/* Invite card decoration cluster */
+.my-profile__invite-decoration {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 280px;
+  height: 100px;
+  pointer-events: none;
+}
+
+.my-profile__gift-icon {
+  position: absolute;
+  right: 120px;
+  top: 35%;
+  width: 90px;
+  height: 70px;
+  filter: drop-shadow(0 4px 8px rgba(255, 105, 180, 0.3));
+}
+
+/* Confetti strips */
+.my-profile__confetti {
+  position: absolute;
+  border-radius: 20px;
+}
+
+.my-profile__confetti--1 {
+  right: 200px;
+  top: 25%;
+  width: 45px;
+  height: 18px;
+  background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+  transform: rotate(-25deg);
+  opacity: 0.9;
+}
+
+.my-profile__confetti--2 {
+  right: 40px;
+  top: 30%;
+  width: 70px;
+  height: 26px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 25px;
+  transform: rotate(15deg);
+  opacity: 0.85;
+}
+
+.my-profile__confetti--3 {
+  right: 70px;
+  bottom: 25%;
+  width: 55px;
+  height: 16px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  transform: rotate(-10deg);
+  opacity: 0.8;
+}
+
+.my-profile__confetti--4 {
+  right: 170px;
+  bottom: 20%;
+  width: 48px;
+  height: 14px;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  border-radius: 18px;
+  transform: rotate(20deg);
+  opacity: 0.75;
+}
+
+/* ============================================
+   Settings Menu List (white card)
+   ============================================ */
+.my-profile__menu-list {
+  list-style: none;
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+.my-profile__menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.my-profile__menu-item:last-child {
+  border-bottom: none;
+}
+
+.my-profile__menu-item:hover {
+  background-color: #fafafa;
+}
+
+.my-profile__menu-item:active {
+  background-color: #f4f4f4;
+}
+
+.my-profile__menu-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.my-profile__menu-icon {
+  width: 24px;
+  height: 24px;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.my-profile__menu-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 1.5;
+}
+
+.my-profile__menu-text {
+  font-size: 15px;
+  font-weight: 400;
+  color: #333;
+  letter-spacing: 0.2px;
+}
+
+.my-profile__menu-arrow {
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.my-profile__menu-arrow svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+}
+
+
+/* ============================================
+   Logout Button
+   ============================================ */
+.my-profile__logout-container {
+  padding: 0 20px 20px;
+  /* background-color: #fff; */
+  border-radius: 20px;
+  margin-bottom: 20px;
+  /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05); */
+  padding: 20px;
+}
+
+.my-profile__logout-btn {
+  width: 100%;
+  padding: 16px;
+  background-color: #e8ecff;
+  color: #030303;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.3px;
+  font-family: inherit;
+}
+
+.my-profile__logout-btn:hover {
+  background-color: #dce2ff;
+}
+
+.my-profile__logout-btn:active {
+  transform: scale(0.98);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.my-profile__footer {
+  text-align: center;
+  padding: 10px;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  border-radius: 20px;
+  margin-bottom: 80px;
+}
+
+/* ============================================
+   Responsive (mobile)
+   ============================================ */
+@media (max-width: 640px) {
+  .my-profile {
+    padding: 24px 16px;
+  }
+
+  .my-profile__cards {
+    padding: 16px;
+  }
+
+  .my-profile__top-row {
+    grid-template-columns: 1fr;
+  }
+
+  .my-profile__profit-card {
+    min-height: 140px;
+    padding: 22px 24px;
+  }
+
+  .my-profile__invite-decoration {
+    width: 200px;
+    opacity: 0.7;
+  }
+
+  .my-profile__invite-text {
+    max-width: 50%;
+  }
+
+  .my-profile__username {
+    font-size: 18px;
+  }
+}
+
+/* ===== Logout Confirm Popup ===== */
+.my-profile__popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-profile__popup-box {
+  width: 300px;
+  max-width: calc(100% - 32px);
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px 20px 18px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.my-profile__popup-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background-color: #fff3cd;
+  color: #e8a200;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-profile__popup-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.my-profile__popup-text {
+  font-size: 13px;
+  color: #777777;
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.my-profile__popup-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.my-profile__popup-btn {
+  flex: 1;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.my-profile__popup-cancel {
+  background-color: #e9ecef;
+  color: #555555;
+}
+
+.my-profile__popup-confirm {
+  background-color: #e03e3e;
+  color: #ffffff;
+}

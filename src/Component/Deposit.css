@@ -1,0 +1,475 @@
+.deposit-container {
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  height: 100vh;
+}
+
+/* Header */
+.deposit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.deposit-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #333333;
+}
+
+.back-arrow, .menu-icon {
+  font-size: 18px;
+  color: #666666;
+  cursor: pointer;
+}
+
+/* Deposit Amount Box */
+.deposit-amount-box {
+  background-color: #fcfcfc;
+  border: 1px solid #eaeaea;
+  border-radius: 6px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+}
+
+.deposit-amount-box label {
+  display: flex;
+  font-size: 13px;
+  color: #777777;
+  margin-bottom: 8px;
+}
+
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.input-group input {
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  color: #888888;
+  width: 100%;
+  outline: none;
+}
+
+.clear-btn {
+  background-color: #e0e0e0;
+  color: #ffffff;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.total-balance {
+  display: flex;
+  font-size: 12px;
+  color: #888888;
+}
+
+/* Bank Card Label */
+.bank-card-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #888888;
+  margin-bottom: 15px;
+}
+.bank-card-label button {
+  border: 1px solid #4c6ef5;
+  background-color: #4c6ef5;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 6px rgba(76, 110, 245, 0.3);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.bank-card-label button:hover {
+  background-color: #3b5bdb;
+  border-color: #3b5bdb;
+}
+.bank-card-label button:active {
+  transform: scale(0.97);
+}
+.bank-card-label input {
+  flex: 1;
+  height: 36px;
+  min-width: 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background-color: #ffffff;
+  outline: none;
+  cursor: default;
+  padding: 0 12px;
+  font-size: 13px;
+  color: #666666;
+  box-sizing: border-box;
+}
+
+/* Quick Selection Header */
+.quick-selection-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #222222;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.lightning-icon {
+  color: #007bff;
+}
+
+.support-links {
+  display: flex;
+  width: 55%;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.support-item {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14px;
+  color: #555555;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Cards Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.amount-card {
+  background-color: #f8f9fc;
+  border: 1px solid #eef1f6;
+  border-radius: 8px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 500;
+  color: #3b5bdb;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.amount-card:hover {
+  background-color: #f1f3f9;
+}
+
+.amount-card.active {
+  border-color: #3b5bdb;
+  background-color: #edf2ff;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  height: 50px;
+  background-color: #2b56f8;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px !important;
+  font-size: 15px !important;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(43, 86, 248, 0.25);
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+}
+
+/* Side Panel (Bank Card Details) */
+.deposit-side-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.deposit-side-panel {
+  width: 320px;
+  max-width: 90%;
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.15);
+  animation: deposit-slide-in 0.25s ease;
+}
+
+@keyframes deposit-slide-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.deposit-side-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.deposit-side-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333333;
+}
+
+.deposit-side-close {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  color: #888888;
+  cursor: pointer;
+}
+
+.deposit-side-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.deposit-side-body label {
+  display: block;
+  font-size: 13px;
+  color: #555555;
+  margin: 0 0 6px;
+}
+
+.deposit-side-body input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 12px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+.deposit-side-body input:focus {
+  border-color: #4c6ef5;
+}
+
+.deposit-side-footer {
+  display: flex;
+  gap: 10px;
+  padding: 16px 20px;
+  border-top: 1px solid #eaeaea;
+}
+
+.deposit-side-cancel, .deposit-side-submit {
+  flex: 1;
+  height: 42px;
+  border-radius: 21px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
+}
+
+.deposit-side-cancel {
+  background-color: #ffffff;
+  color: #555555;
+  border: 1px solid #cccccc;
+  box-shadow: none;
+}
+
+.deposit-side-cancel:hover {
+  background-color: #f2f2f2;
+  border-color: #b5b5b5;
+}
+
+.deposit-side-submit {
+  background-color: #4c6ef5;
+  color: #ffffff;
+  border: 1px solid #3b5bdb;
+}
+
+.deposit-side-submit:hover {
+  background-color: #3b5bdb;
+  border-color: #2f4cd0;
+}
+
+.deposit-side-cancel:active, .deposit-side-submit:active {
+  transform: scale(0.97);
+}
+
+.deposit-side-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Waiting for Approval Popup */
+.deposit-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deposit-popup-box {
+  width: 300px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px 20px 18px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.deposit-popup-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background-color: #fff3cd;
+  color: #e8a200;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deposit-popup-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.deposit-popup-text {
+  font-size: 13px;
+  color: #777777;
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.deposit-popup-ok {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background-color: #4c6ef5;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ================= RESPONSIVE MEDIA QUERIES ================= */
+
+/* Tablet View (Screens up to 1024px) */
+@media (max-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .support-links {
+    width: 65%;
+  }
+}
+
+/* Mobile View (Screens up to 768px) */
+@media (max-width: 768px) {
+  .deposit-container {
+    padding: 12px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .amount-card {
+    height: 75px;
+  }
+
+  .quick-selection-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .support-links {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 30px;
+  }
+}
+.withdrawal-account-hint {
+  font-size: 12px;
+  color: #888888;
+  text-align: center;
+  padding: 0 4px 8px;
+  margin: 0 0 6px;
+  line-height: 1.5;
+}
+
+.transactions-disabled-banner {
+  margin: 0 16px 14px;
+  padding: 12px 14px;
+  background: #fdecea;
+  border: 1px solid #f5c6c1;
+  border-radius: 8px;
+  color: #d93025;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
