@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import './Login.css'
 import Login from './Login'
 import Register from './Register'
+import { useLanguage } from '../LanguageContext'
 
 const LANGUAGES = ["Українська", "English", "Русский", "Italien", "Français", "Español", "Português", "العربية"];
 
@@ -205,7 +206,7 @@ const StartPage = ({ onLogin }) => {
   const location = useLocation();
   const inviteCode = new URLSearchParams(location.search).get('invite') || '';
   const [showLogin, setShowLogin] = useState(!inviteCode);
-  const [lang, setLang] = useState(() => localStorage.getItem('app_lang') || 'English');
+  const { lang, setLang } = useLanguage();
   const [showLangModal, setShowLangModal] = useState(false);
 
   const t = useCallback((key) => {
@@ -219,7 +220,6 @@ const StartPage = ({ onLogin }) => {
 
   const handleLangSelect = (langName) => {
     setLang(langName);
-    localStorage.setItem('app_lang', langName);
     setShowLangModal(false);
   };
 

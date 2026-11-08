@@ -15,6 +15,8 @@ const Starting = () => {
   const [showProduct, setShowProduct] = useState(false);
   const [working, setWorking] = useState(false);
   const [popup, setPopup] = useState(null);
+  const [orderWindow, setOrderWindow] = useState('');
+  const [settings, setSettings] = useState(null);
 
   const token = getCookie('token');
 
@@ -36,8 +38,10 @@ const Starting = () => {
         .then((res) => res.json()),
       fetch(`${API_URL}/api/orders/my-pending`, { headers: { Authorization: `Bearer ${token}` } })
         .then((res) => res.json()),
+      fetch(`${API_URL}/api/settings`)
+        .then((res) => res.json()),
     ])
-      .then(([meJson, levelsJson, pendJson]) => {
+      .then(([meJson, levelsJson, pendJson, settingsJson]) => {
         if (!alive) return;
         if (meJson && meJson.success && meJson.data && meJson.data.member) {
           loadMember(meJson.data.member);
@@ -58,6 +62,10 @@ const Starting = () => {
         }
         if (pendJson && pendJson.success && pendJson.data && pendJson.data.order) {
           setCurrentOrder(pendJson.data.order);
+        }
+        if (settingsJson && settingsJson.success && settingsJson.data) {
+          setSettings(settingsJson.data);
+          // setOrderWindow(formatSystemWindowForUser(settingsJson.data));
         }
       })
       .catch(() => {});
@@ -116,6 +124,29 @@ const Starting = () => {
     }
   };
 
+  const formatSystemWindowForUser = (settings) => {
+    if (!settings?.openingTime || !settings?.closingTime || !settings?.systemTimeZone) return '';
+    const formatTime = (wallTime) => {
+      const match = /^([01]\d|2[0-3]):([0-5]\d)(?::([0-5]\d))?$/.exec(wallTime);
+      if (!match) return wallTime;
+      const now = new Date();
+      let candidate = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), Number(match[1]), Number(match[2]), Number(match[3] || 0)));
+      for (let i = 0; i < 3; i += 1) {
+        const parts = new Intl.DateTimeFormat('en-US', {
+          timeZone: settings.systemTimeZone,
+          hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23',
+        }).formatToParts(candidate);
+        const values = {};
+        parts.forEach((part) => { if (part.type !== 'literal') values[part.type] = Number(part.value); });
+        const displayed = (values.hour || 0) * 3600 + (values.minute || 0) * 60 + (values.second || 0);
+        const wanted = Number(match[1]) * 3600 + Number(match[2]) * 60 + Number(match[3] || 0);
+        candidate = new Date(candidate.getTime() + (wanted - displayed) * 1000);
+      }
+      return new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(candidate);
+    };
+    return `${t('start.working_hours')}: ${formatTime(settings.openingTime)} - ${formatTime(settings.closingTime)}`;
+  };
+
   return (
     <div className="starting-container">
       {/* Top VIP Banner */}
@@ -169,7 +200,7 @@ const Starting = () => {
       {/* Important Notice */}
       <div className="notice-box">
         <h4>{t('start.important_notice')}</h4>
-        <p>{t('start.working_hours')}</p>
+        <p>{formatSystemWindowForUser(settings)}</p>
         <p>{t('start.contact_line')}</p>
       </div>
 
@@ -216,6 +247,25 @@ const Starting = () => {
             <p className="popup-message">{popup.message}</p>
             <button className="popup-btn" onClick={() => setPopup(null)}>
               {t('common.ok')}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Order Window Display */}
+      {orderWindow && (
+        <div className="order-window">
+          <div className="order-window-content">
+            <span className="order-window-title">{t('start.order_window')}</span>
+            <div className="order-window-times">
+              {orderWindow.map((time, index) => (
+                <div key={index} className="order-window-time">
+                  {time}
+                </div>
+              ))}
+            </div>
+            <button className="popup-btn" onClick={() => setOrderWindow('')}>
+              {t('common.close')}
             </button>
           </div>
         </div>

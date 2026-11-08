@@ -8,6 +8,7 @@ import nav4 from "./nav4.png";
 import { API_URL } from "../api";
 import { useLanguage } from "../LanguageContext";
 import LanguagePopup from "./LanguagePopup";
+import VipLevels from "./VipLevels";
 const Home = ({ user }) => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
@@ -32,7 +33,8 @@ const Home = ({ user }) => {
     };
   }, []);
 
-  const popularProducts = products.slice(0, 10);
+  const vipProducts = products.slice(0, 20);
+  const popularProducts = products.slice(0, 20);
   const trackRef = useRef(null);
   const scrollCarousel = (direction) => {
     if (trackRef.current) {
@@ -111,7 +113,7 @@ const Home = ({ user }) => {
 
           {/* Carousel Track with 20 Items */}
           <div ref={trackRef} className="carousel-track">
-            {products.map((item) => (
+            {vipProducts.map((item) => (
               <div key={item._id} className="short-box-item">
                 {item.picture && (
                   <img src={item.picture} alt={item.name} className="short-box-img" />
@@ -136,6 +138,7 @@ const Home = ({ user }) => {
           </button>
         </div>
       </div>
+      <VipLevels title={t("home.vip_level")} />
       <div className="popular_section">
         <div className="pop_heading">
           <span>{t("home.popular")}</span>
@@ -151,6 +154,8 @@ const Home = ({ user }) => {
               </div>
               <div className="box-content-right">
                 <span className="rating">⭐ {item.rating}</span>
+              </div>
+              <div className="box-price">
                 <span className="price">${item.price}</span>
               </div>
             </div>

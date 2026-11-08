@@ -47,6 +47,11 @@ const Withdraw = () => {
   const [vipLimits, setVipLimits] = useState(null);
   const [withdrawalCountToday, setWithdrawalCountToday] = useState(0);
   const [limitPopup, setLimitPopup] = useState(null);
+  const [withdrawSettings, setWithdrawSettings] = useState({
+    systemTimeZone: 'Asia/Bishkek',
+    withdrawalStartTime: '01:00:00',
+    withdrawalEndTime: '17:00:00',
+  });
 
   useEffect(() => {
     let alive = true;
@@ -56,6 +61,11 @@ const Withdraw = () => {
         if (alive && json && json.success && json.data) {
           setTransactionsDisabled(!!json.data.transactionsDisabled);
           setDisabledMsg(json.data.disabledMessage || '');
+          setWithdrawSettings({
+            systemTimeZone: json.data.systemTimeZone || 'Asia/Bishkek',
+            withdrawalStartTime: json.data.withdrawalStartTime || '01:00:00',
+            withdrawalEndTime: json.data.withdrawalEndTime || '17:00:00',
+          });
         }
       })
       .catch(() => {});
@@ -129,13 +139,37 @@ const Withdraw = () => {
     setAmount('');
   };
 
-  const WITHDRAW_START_SECONDS = 1 * 3600; // 01:00:00
-  const WITHDRAW_END_SECONDS = 17 * 3600; // 17:00:00
+  const timeToSeconds = (time) => {
+    const match = /^([01]\d|2[0-3]):([0-5]\d)(?::([0-5]\d))?$/.exec(String(time || '').trim());
+    if (!match) return null;
+    return Number(match[1]) * 3600 + Number(match[2]) * 60 + Number(match[3] || 0);
+  };
+
+  const WITHDRAW_START_SECONDS = timeToSeconds(withdrawSettings.withdrawalStartTime);
+  const WITHDRAW_END_SECONDS = timeToSeconds(withdrawSettings.withdrawalEndTime);
 
   const isWithdrawTimeOpen = () => {
-    const now = new Date();
-    const seconds = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
-    return seconds >= WITHDRAW_START_SECONDS && seconds <= WITHDRAW_END_SECONDS;
+    let parts;
+    try {
+      parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: withdrawSettings.systemTimeZone,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hourCycle: 'h23',
+      }).formatToParts(new Date());
+    } catch (error) {
+      return false;
+    }
+    const values = {};
+    parts.forEach((part) => { if (part.type !== 'literal') values[part.type] = Number(part.value); });
+    const seconds = (values.hour || 0) * 3600 + (values.minute || 0) * 60 + (values.second || 0);
+
+    if (WITHDRAW_START_SECONDS === null || WITHDRAW_END_SECONDS === null) return false;
+    if (WITHDRAW_START_SECONDS <= WITHDRAW_END_SECONDS) {
+      return seconds >= WITHDRAW_START_SECONDS && seconds <= WITHDRAW_END_SECONDS;
+    }
+    return seconds >= WITHDRAW_START_SECONDS || seconds <= WITHDRAW_END_SECONDS;
   };
 
   const handleSubmit = async () => {
