@@ -13,6 +13,7 @@ const Starting = () => {
   const [todayProfit, setTodayProfit] = useState(0);
   const [currentOrder, setCurrentOrder] = useState(null);
   const [showProduct, setShowProduct] = useState(false);
+  const [insufficientBalance, setInsufficientBalance] = useState(false);
   const [working, setWorking] = useState(false);
   const [popup, setPopup] = useState(null);
   const [orderWindow, setOrderWindow] = useState('');
@@ -85,7 +86,12 @@ const Starting = () => {
       });
       const json = await res.json().catch(() => null);
       if (json && json.success) {
+        setInsufficientBalance(false);
         setCurrentOrder(json.data.order);
+        setShowProduct(true);
+      } else if (json && json.insufficientBalance && json.data && json.data.order) {
+        setCurrentOrder(json.data.order);
+        setInsufficientBalance(true);
         setShowProduct(true);
       } else {
         setPopup({ message: apiError(res, json), type: 'error' });
@@ -227,8 +233,12 @@ const Starting = () => {
             <div className="popup-product-meta">{t('start.rating')} {Number(currentOrder.productRating || 0)}</div>
             <div className="popup-product-meta">{t('start.price')} {Number(currentOrder.unitPrice || 0).toFixed(2)}</div>
             <div className="popup-product-meta">{t('start.commission')} {Number(currentOrder.commission || 0).toFixed(2)}</div>
-            <button className="popup-btn product-start-btn" onClick={handleOrderDone} disabled={working}>
-              {working ? t('start.processing') : t('start.start')}
+            <button
+              className="popup-btn product-start-btn"
+              onClick={handleOrderDone}
+              disabled={working || insufficientBalance}
+            >
+              {insufficientBalance ? 'Insufficient Balance' : working ? t('start.processing') : t('start.start')}
             </button>
           </div>
         </div>
