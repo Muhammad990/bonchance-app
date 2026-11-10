@@ -257,7 +257,20 @@
 }
 
 .product-popup-box {
+  position: relative;
   padding: 24px 20px 18px;
+}
+
+.product-popup-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  border: 0;
+  background: transparent;
+  color: #666666;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
 }
 
 .product-popup-image {

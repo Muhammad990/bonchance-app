@@ -3,12 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import './MyProfile.css';
 import { deleteCookie } from '../api';
 import { useLanguage } from '../LanguageContext';
+import LanguagePopup from './LanguagePopup';
 import img from './avatar.png'
 
 const MyProfile = ({ user = {}, onLogout }) => {
   const navigate = useNavigate();
-  const { t } = useLanguage();
+  const { lang, setLang, t } = useLanguage();
   const [logoutConfirm, setLogoutConfirm] = useState(false);
+  const [showLangPopup, setShowLangPopup] = useState(false);
   const dailyOrderVolume = user.dailyOrderVolume || 30;
   // Menu items data
   const menuItems = [
@@ -93,6 +95,9 @@ const MyProfile = ({ user = {}, onLogout }) => {
   return (
     <div className="my-profile">
       <div className="my-profile__container">
+        <div className="my-profile__language-setting">
+          <button onClick={() => setShowLangPopup(true)}>{lang}</button>
+        </div>
         {/* ===== Top: User Profile Header ===== */}
         <div className="my-profile__user">
           <img
@@ -208,6 +213,13 @@ const MyProfile = ({ user = {}, onLogout }) => {
             </div>
           </div>
         )}
+
+        <LanguagePopup
+          open={showLangPopup}
+          onClose={() => setShowLangPopup(false)}
+          lang={lang}
+          setLang={setLang}
+        />
 
         {/* ===== Footer ===== */}
         <div className="my-profile__footer">

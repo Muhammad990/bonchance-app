@@ -43,6 +43,25 @@
   z-index: 1;
 }
 
+.my-profile__language-setting {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 44px;
+  width: 100%;
+  padding-right: 20px;
+}
+
+.my-profile__language-setting button {
+  height: 30px;
+  width: 80px;
+  font-size: medium;
+  font-weight: 500;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 /* ============================================
    User Profile Header
    ============================================ */

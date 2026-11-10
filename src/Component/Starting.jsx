@@ -85,8 +85,9 @@ const Starting = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
       const json = await res.json().catch(() => null);
-      if (json && json.success) {
-        setInsufficientBalance(false);
+      if (json && json.success && json.data && json.data.order) {
+        setInsufficientBalance(Boolean(json.data.insufficientBalance));
+        if (json.data.member) loadMember(json.data.member);
         setCurrentOrder(json.data.order);
         setShowProduct(true);
       } else if (json && json.insufficientBalance && json.data && json.data.order) {
@@ -221,6 +222,13 @@ const Starting = () => {
       {currentOrder && showProduct && (
         <div className="popup-overlay">
           <div className="popup-box product-popup-box">
+            <button
+              className="product-popup-close"
+              onClick={() => setShowProduct(false)}
+              aria-label={t('common.close')}
+            >
+              &times;
+            </button>
             <div className="popup-title">{t('start.order_product')}</div>
             <div className="product-image-wrap product-popup-image">
               {currentOrder.productPicture ? (
