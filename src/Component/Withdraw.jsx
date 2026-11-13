@@ -280,7 +280,9 @@ const Withdraw = () => {
       });
       const json = await res.json().catch(() => null);
       if (res.ok && json && json.success) {
+        const withdrawn = Number(amount) || 0;
         setSuccess(t('withdraw.success'));
+        setTotalBalance((prev) => Math.max(0, Math.round((prev - withdrawn) * 100) / 100));
         setAmount('');
         setSecurityPin('');
       } else {
